@@ -1,18 +1,25 @@
 PREDEF:
+# はじめに
   - introduction.re
 
 CHAPS:
+# ドメインとWHois
   - domein.re
 
+# 環境構築
   - aws.re
 
+# DNS
   - dns.re
 
+# トラブルシューティング
   - trouble.re
 
 APPENDIX:
+# 何か付録があれば
 
 POSTDEF:
+# あとがき
   - postscript.re
-
+# 執筆者一覧
   - contributors.re

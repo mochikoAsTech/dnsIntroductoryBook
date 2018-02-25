@@ -171,6 +171,9 @@ colophon: true
 # 取り込むフォントが格納されているディレクトリ。省略した場合は以下
 # fontdir: fonts
 
+# コラムでも注釈使う（これを入れるとfootnoteのエラーが消えたが注釈へのリンクも消えた）
+footnotetext: true
+
 # imagedir内から取り込まれる対象となるファイル拡張子。省略した場合は以下
 # image_ext: ["png", "gif", "jpg", "jpeg", "svg", "ttf", "woff", "otf"]
 
