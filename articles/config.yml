@@ -23,7 +23,7 @@ language: ja
 
 # 書名
 # 読みを入れる例 booktitle: {name: "Re:VIEW EPUBサンプル", file-as: "リビューイーパブサンプル"}
-booktitle: 基礎からトラブルシューティングまで DNS超入門
+booktitle: {name: "DNSをはじめよう", file-as: "ディーエヌエスヲハジメヨウ"}
 
 # 著者名。「, 」で区切って複数指定できる
 # 読みを入れる例 aut: [{name: "青木峰郎", file-as: "アオキミネロウ"}, {name: "武藤健志", file-as: "ムトウケンシ"}, {name: "高橋征義", file-as: "タカハシマサヨシ"}, {name: "角征典", file-as: "カドマサノリ"}]
@@ -137,7 +137,7 @@ toc: true
 # cover: null
 #
 # 表紙に配置し、書籍の影絵にも利用する画像ファイル。省略した場合はnull (画像を使わない)。画像ディレクトリ内に置いてもディレクトリ名は不要(例: cover.jpg)
-# coverimage: cover.png
+coverimage: cover.jpg
 #
 # 表紙の後に大扉ページを作成するか。省略した場合はnull (作成しない)
 #titlepage: true
