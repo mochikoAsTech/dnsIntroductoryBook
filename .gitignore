@@ -1,5 +1,7 @@
 node_modules
 Gemfile.lock
 *.pdf
+# ƒŒƒrƒ…[‚ÌŠÔ‚Ì‚İPDF‚àŠÇ—‘ÎÛ‚É‚·‚é
+!articles/dnsIntroductoryBook.pdf
 
 articles/*.html
