@@ -4,7 +4,7 @@ PREDEF:
 
 CHAPS:
 # ドメインとWHois
-  - domein.re
+  - domain.re
 
 # 環境構築
   - aws.re
