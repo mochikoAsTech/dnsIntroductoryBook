@@ -291,7 +291,7 @@ startdns.fun.       300 IN NS   dns1.onamae.com.
 startdns.fun.       300 IN NS   dns2.onamae.com.
 //}
 
-TTLに300と書かれているので、最大で300秒＝5分待てばネームサーバはRoute53に切り替わるはずです。再び「nslookup(dig)テスト【DNSサーバ接続確認】」で「ホスト名(FQDN)を指定してください」という欄に自分のドメインを入力して、オプションで「NS：正式なネームサーバ」を選択したら「dig実行」を押してください。
+TTLに300と書かれているので、最大で300秒＝5分待てばネームサーバはRoute53に切り替わるはずです。再び「nslookup(dig)テスト【DNSサーバ接続確認】」で「ホスト名(FQDN)を指定してください」という欄に自分のドメインを入力（@<img>{digStartDnsFunByCman}）して、オプションで「NS：正式なネームサーバ」を選択したら「dig実行」を押してください。
 
 //image[digStartDnsFunByCman][再び自分のドメインのネームサーバを調べる][scale=0.75]{
 //}
