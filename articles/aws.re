@@ -150,7 +150,7 @@ Type	Public Hosted Zone
 //image[createHostedZones][お名前.comで買った自分のドメインを書く][scale=0.75]{
 //}
 
-これでRoute53というネームサーバの中にゾーンが出来て、ゾーンの中にドメインのネームサーバを示すNSレコード（@<img>{nsRecord}）と管理情報を示すSOAレコードというリソースレコードも出来ました。
+これでRoute53というネームサーバの中にゾーンが出来て、ゾーンの中にドメインのネームサーバを示すNSレコード（@<img>{nsRecord}）と管理情報を示すSOAレコードというリソースレコードも出来ました。//label[soaAndNs]
 
 //image[nsRecord][ゾーンとその中にリソースレコードが出来た][scale=0.75]{
 //}

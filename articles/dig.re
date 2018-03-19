@@ -457,15 +457,136 @@ $ dig -x IPアドレス +short
 
 === CNAMEレコード
 
+ときどきAレコードでドメインからIPを引こうとしたのに、こんな風にドメインとIPが返ってくることがあります。
+
+//cmd{
+$ dig aibo.sony.jp a +short
+cs1018.wpc.omicroncdn.net.
+152.195.38.205
+//}
+
+なぜaiboのサイト@<fn>{aibo}のAレコードを調べるとcs1018.wpc.omicroncdn.netという全然関係のなさそうなドメインが出てくるのでしょう？+shortオプションを外して、この結果に至るまでの過程を見てみましょう。
+
+//footnote[aibo][@<href>{https://aibo.sony.jp/}]
+
+//cmd{
+$ dig aibo.sony.jp a
+
+; <<>> DiG 9.8.2rc1-RedHat-9.8.2-0.62.rc1.el6_9.5 <<>> aibo.sony.jp a
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 58537
+;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 2, ADDITIONAL: 4
+
+;; QUESTION SECTION:
+;aibo.sony.jp.                  IN      A
+
+;; ANSWER SECTION:
+aibo.sony.jp.           300     IN      CNAME   cs1018.wpc.omicroncdn.net.
+cs1018.wpc.omicroncdn.net. 3091 IN      A       152.195.38.205
+
+;; AUTHORITY SECTION:
+omicroncdn.net.         172518  IN      NS      ns2.omicroncdn.net.
+omicroncdn.net.         172518  IN      NS      ns1.omicroncdn.net.
+
+;; ADDITIONAL SECTION:
+ns1.omicroncdn.net.     172518  IN      A       72.21.80.5
+ns1.omicroncdn.net.     172518  IN      AAAA    2606:2800:1::5
+ns2.omicroncdn.net.     172518  IN      A       72.21.80.6
+ns2.omicroncdn.net.     172518  IN      AAAA    2606:2800:1::6
+
+;; Query time: 0 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Mon Mar 19 22:09:15 2018
+;; MSG SIZE  rcvd: 209
+//}
+
+ANSWER SECTIONを見ると、aibo.sony.jpのCNAMEにcs1018.wpc.omicroncdn.netが設定されており、さらにcs1018.wpc.omicroncdn.netのAレコードに152.195.38.205が設定されていることが分かります。このとき「aibo.sony.jp」をaliases（別名）、「cs1018.wpc.omicroncdn.net」をcanonical name（正式名）と呼びます。
+
+フルリゾルバはaibo.sony.jpのAレコードを調べに行って、Aレコードの代わりにCNAMEレコードが見つかった場合、名前解決の対象を正式名であるcs1018.wpc.omicroncdn.netに置き換えて引き続きAレコードを調べ、最終的にcs1018.wpc.omicroncdn.netのAレコードに紐づくIPアドレスを返してきます。
+
+CNAMEレコードが設定されているときはAレコードを問い合わせても結果としてCNAMEレコードと、その正式名のAレコードが返ってきますが、CNAMEレコードだけを調べたいときは次のdigコマンドで確認できます。
+
+//cmd{
+$ dig ドメイン名 cname +short
+//}
+
+=== 【ドリル】CNAMEの調べ方と使いどころ
+
+==== 問題
+
+キドキド@<fn>{kidoKidUrl}）のサイト（@<img>{kidokid}）のドメイン「kidokid.bornelund.co.jp」のCNAMEレコードを知りたい場合、どのdigコマンドを叩けばよいでしょうか？
+
+//footnote[kidoKidUrl][@<href>{https://kidokid.bornelund.co.jp/}]
+
+//image[kidokid][キドキド（KID-O-KID）のサイト][scale=0.75]{
+//}
+
+ * A. dig kidokid.bornelund.co.jp cname +short
+ * B. dig kidokid.bornelund.co.jp a +short
+ * C. dig kidokid.bornelund.co.jp txt +short
+ * D. dig kidokid.bornelund.co.jp mx +short
+
+==== 解答
+
+正解はAです。但しBもCNAMEレコードとそのAレコードが返ってくるのでBでも構いません。CNAMEレコードはCDN@<fn>{cdn}を使うときによく利用されます。
+
+//footnote[cdn][Contents Delivery Networkの略。アクセスしてきたエンドユーザに最も近いサーバからサイトのコンテンツを効率的に配信できる仕組みのこと。CDNを使うとエンドユーザからのアクセスが分散されるため、TVCMやLINE砲で一気にアクセスが殺到してもサイトが落ちたり重くなったりしないで済む。]
+
+//cmd{
+$ dig kidokid.bornelund.co.jp cname +short
+bornelund-ELB-1960389134.ap-northeast-1.elb.amazonaws.com.
+//}
+
+CDNを使う場合だけでなく、1台のウェブサーバに大量のサイトが相乗りしているような場合もCNAMEレコードを使うと便利です。たとえばウェブサーバにサイトA、サイトB、サイトC・・・と計100サイトが相乗りしていてそれぞれAレコードを設定していた場合、ウェブサーバを引っ越すとなったら100件のAレコードを書き換えなければなりません。ですが、Aレコードを設定しているのはサイトAのみで、それ以外のサイトはCNAMEでサイトAのドメインを指定するという方法にしておけば、サーバ引っ越しに際して書き換えなければならないのはサイトAのAレコードのみです。
+
+=== CNAMEレコードを設定したら他のリソースレコードは設定できない
+
+一見便利なCNAMEレコードですが使用する際は注意点があります。それは「@<b>{CNAMEレコードを設定したら、他のリソースレコードは設定できない}」ということです。
+
+たとえば次のようなCNAMEレコードとMXレコードは共存ができません@<fn>{rfc1912}。campaign.example.comのCNAMEレコードでcdn.example.jpを設定すると、AレコードだけでなくMXレコードもTXTレコードもNSレコードも、ありとあらゆるレコードがcdn.example.jpを参照しに行ってしまうため、campaign.example.comのMXレコードでmail.example.comを設定したとしても、そのMXレコードは名前解決に使われることなく無視されてしまうのか、あるいは使われるのか動作が全く保証されません。そのためRoute53をはじめとするネームサーバのサービスでは、CNAMEレコードを設定した場合は他のリソースレコードが設定できないようになっています。
+
+//footnote[rfc1912][A CNAME record is not allowed to coexist with any other data. @<href>{http://www.ietf.org/rfc/rfc1912.txt}]
+
+//cmd{
+campaign.example.com.   IN   CNAME    cdn.example.jp.
+campaign.example.com.   IN   MX       mail.example.com.
+//}
+
+また「ありとあらゆるレコード」にはCNAMEレコードも含まれるため、次のようにCNAMEレコードを複数設定することもできません。
+
+//cmd{
+campaign.example.com.   IN   CNAME    cdn1.example.jp.
+campaign.example.com.   IN   CNAME    cdn2.example.jp.
+//}
+
 ==== ZONE APEXはCNAMEを使えない
 
-==== Route53のAliasならZONE APEXでも設定可能
+そのためZONE APEX@<fn>{zoneApex}ではCNAMEを設定することができません。私がCDNを使いたいと思っても、次のようなCNAMEレコードは設定できないのです。
 
-==== AliasはCNAMEと違って名前解決が1回
+//footnote[zoneApex][startdns.funやexample.jpのようにwwwやstgといったサブドメインを含まないドメインのこと。レジストラやリセラで買ったいちばん短い表記のドメインのことをZONE APEXと呼びます。Apex DomainやNaked Domain、ホスト名なしドメインなどと呼ばれることもあります。]
+
+//cmd{
+startdns.fun.   IN   CNAME    cdn.example.jp.
+//}
+
+なぜならば前述のとおり、CNAMEは他のリソースレコードと共存できないのに対して、ZONE APEXには「このドメインはこのネームサーバを使うよ！」というNSレコード、および「このドメインの管理情報はこれだよ！」というSOAレコードが必ず存在するからです。（お名前.comで自分のドメインを買った後、Route53でホストゾーンを作成したらSOAレコードとNSレコードが自動生成されていたのを覚えていますか？@<chapref>{aws}を読み返してみましょう！）
+
+==== Route53のAliasレコードならZONE APEXでも設定可能
+
+前述の「CNAMEレコードは他のリソースレコードと共存できない」「ZONE APEXにはNSレコードとSOAレコードが必ず存在する」という2つの制限から、たとえCDNやELB@<fn>{elb}を使いたいと思ってもZONE APEXでは使えなかったのですが、Route53のAliasレコードという独自拡張を使うとZONE APEXでもCDNを使うことができるのです。
+
+//footnote[elb][Elastic Load Balancingの略。AWSのサービスの1つでいわゆるロードバランサーのこと。]
+
+startdns.funというドメインに紐づくIPアドレスを調べようとしたとき、CNAMEレコードの場合は「startdns.funのCNAMEレコードはcdn.example.jpで、cdn.example.jpのAレコードは203.0.113.222」のように名前解決が2回発生します。対してRoute53のAliasレコードで「startdns.funのエイリアス先はcdn.example.jpである」という設定をしておけば、フルリゾルバがstartdns.funのAレコードを問い合わせに来たら「startdns.funのAレコードは203.0.113.222」のように一発でIPアドレスを返すので名前解決は1回で済みます。@<fn>{alias}
+
+//footnote[alias][Route53のAliasの他にCloudFlareのCNAME Flatteningなど類似のサービスはいくつかあります。]
+
+ネームサーバでRoute53を使っていても、参照先のCDNやロードバランサーがAWS外なのであればCNAMEを使うしかありませんが、参照先がAWS内のサービスであればAliasレコードを使わない手はありません。ZONE APEXに限らず積極的に使いましょう。
 
 === ぎゅっとのり付け！グルーレコード
 
-ところでドメインを買ったとき、お名前.comのネームサーバやRoute53を使う他に自力でネームサーバを立てることもできます。Linuxサーバを立ててApacheをインストールすればウェブサーバになるように、Linuxサーバを立ててBINDをインストールすればもうそいつは立派なネームサーバです。
+ところでドメインを買ったとき、お名前.comのネームサーバやRoute53を使う他に自力でネームサーバを立てて使うこともできます。Linuxサーバを立ててApacheをインストールすればウェブサーバになるように、Linuxサーバを立ててBINDをインストールすればもうそれは立派なネームサーバです。
 
 例えば私がstartdns.funというドメインを買って、自分で作ったネームサーバにns1.startdns.funという名前を付けて、startdns.funのNSレコードにns1.startdns.funを設定したとします。このとき、ブラウザで@<href>{http://startdns.fun/}を開こうとすると次のようになります。
 
