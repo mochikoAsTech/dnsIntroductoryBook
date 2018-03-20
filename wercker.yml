@@ -7,11 +7,8 @@ build:
       name: install
       code: npm install
     - script:
-      name: where
-      code: pwd
-    - script:
       name: create pdf
-      code: review-pdfmaker articles/config.yml
+      code: npm run pdf
     # - script:
     #   name: create epub
     #   code: npm run epub
