@@ -208,6 +208,8 @@ Yahoo!ドメイン	取り扱いなし
  * A. 当初の予定通りドメインは〇〇.comにする
  * B. 提案を受け入れてドメインは〇〇.xxxにする
 
+//raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
+
 ==== 解答
 
 正解はAです。.xxxはアダルトコンテンツ専用に用意されたTLDで、国によってはTLDごと閲覧をブロックされています。ブランドイメージを損なうとともに、今回のケースではネットショップが閲覧できない状況を避けるのが何より優先ですので〇〇.comにすべきです。
@@ -413,6 +415,8 @@ TLDを1つしか選ばないとそのドメインが売り切れだったとい�
  * B. マーケティングチームのメーリングリスト
  * C. 個人情報流出が怖いので「test@example.com」のような適当なメールアドレス
 
+//raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
+
 ==== 解答
 
 正解はBです。但しIT系の会社では部署編成などで部署そのものがなくなり、部署に紐づいたメーリングリストもなくなってしまうことがままあります。できるだけ長持ちしそうな社内メーリングリストを選びましょう。
@@ -547,6 +551,8 @@ Whoisに情報を登録しなかったり嘘の情報を登録したりすると
  * B. A社から任されてドメインを買ったのはB社だからB社を登録すべき
  * C. 実際にサイトの管理を任されているのはC社だからC社を登録すべき
 
+//raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
+
 ==== 解答
 
 正解はAです。A社のウェブサイトですので基本的にはA社（クライアント）の情報を記載すべきです。Whois情報は誰でも見られるため、広告代理店のB社やWeb制作会社のC社が請け負っていることを公にしてはいけないような守秘義務のあるケースでうっかりWhoisがB社やC社になっていると、見る人が見れば「A社のサイトはB社やC社が関わっているんだ」と分かってしまいます。@<fn>{whyKaisan}
@@ -590,6 +596,9 @@ Whoisに情報を登録しなかったり嘘の情報を登録したりすると
  * A. 〇〇.co.jpを保持したままでは△△.co.jpを買えない
  * B. 〇〇.co.jpを保持したまま△△.co.jpを買える
 
+
+//raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
+
 ==== 解答
 
 正解はAです。企業向けの.co.jpや大学向けの.ac.jpなど、組織の種類ごとに用意されている属性型JPドメインは基本的に1つの組織につき1つしか登録できません。ただしこの「1組織1ドメインのみ」という原則は以前は絶対でしたが現在は緩和されています。2014年に「属性型（組織種別型）・地域型JPドメイン名登録等に関する規則」が改訂され、企業の合併・組織名変更・事業譲渡などに限って、JPRSに「1組織1ドメイン名制限緩和申請」という申請@<fn>{domainRestriction}を出せば1つの組織で複数のco.jpドメインを持てるようになりました。残念ながら今回のケースは単なる社長の思いつきなのでこの制限緩和には当てはまりません。
@@ -632,6 +641,8 @@ Internet Archive Wayback Machine@<fn>{archive}で見る限り、2013年7月に�
 
  * A. 大丈夫！更新しません
  * B. 更新しないとダメかも知れない・・・サイトの状況を確認しよう
+
+//raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
 
 ==== 解答
 

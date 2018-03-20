@@ -327,6 +327,8 @@ startdns.fun. 3599 IN NS ns-943.awsdns-53.net.
  * A. AWSのRoute53
  * B. お名前.com
 
+//raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
+
 === 解答
 
 正解はBです。今行った作業はドメインのネームサーバを、デフォルト設定のお名前.comからAWSのRoute53というネームサーバに変更しただけです。レジストラ（ドメインを購入するお店）をお名前.comからAWSのRoute53に変更する「レジストラ移管」を行ったわけではないので、1年後に更新の連絡をしてくるのもお名前.comです。

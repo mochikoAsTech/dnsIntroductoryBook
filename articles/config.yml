@@ -50,7 +50,7 @@ aut: [{name: "mochikoAsTech", file-as: "モチコアズテック"}]
 # a-csl, csl: 監修者
 # a-dsr, dsr: デザイナ
 # a-edt, edt: 編集者
-dsr: ["Wさん Nさん"]
+a-dsr: ["Hikaru Wakamatsu / Shinya Nagashio"]
 # a-ill, ill: イラストレータ
 # a-lyr, lyr: 歌詞作成者
 # a-mdc, mdc: メタデータセットの一次的責任者
@@ -302,8 +302,8 @@ texdocumentclass: ["jsbook", "b5j,twoside,openany,uplatex"]
 # dvicommand: "dvipdfmx"
 #
 # LaTeX用のdvi変換コマンドのオプションを指定する
-# dvioptions: "-d 5"
-dvioptions: "-f msmingoth.map -d 5"
+ dvioptions: "-d 5"
+# dvioptions: "-f msmingoth.map -d 5"
 
 # 以下のパラメータを有効にするときには、
 # pdfmaker:
@@ -313,6 +313,9 @@ dvioptions: "-f msmingoth.map -d 5"
 # という構成にする必要がある(インデントさせる)
 #
 pdfmaker:
+  # 索引 @<idx>{文字列}
+  #makeindex: true
+  #makeindex_dic: my.dic
   #
   # TeXコンパイル前に実行するプログラム。変換後のTeXソースを調整したいときに使用する。
   # 渡される引数1=作業用展開ディレクトリ、引数2=呼び出しを実行したディレクトリ

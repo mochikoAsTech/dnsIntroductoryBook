@@ -166,6 +166,8 @@ $ dig ドメイン名 a +short
  * B. AWS
  * C. IDCFクラウド
 
+//raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
+
 ==== 解答
 
 正解はBです。
@@ -363,6 +365,8 @@ $ dig ドメイン名 ns +short
  * B. MicrosoftのAzure DNS
  * C. IDCFクラウド DNS
 
+//raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
+
 ==== 解答
 
 正解はAです。次のようにdigコマンドを叩くと「awsdns」という文字を含むネームサーバ名が返ってくるので、すぐにAWSのRoute53だな、と分かります。
@@ -430,6 +434,8 @@ $ dig spf.pokemon.mailds.jp txt +short
  * A. $ dig example.com spf +short
  * B. $ dig campaign.example.com txt +short
  * C. $ dig example.com txt +short
+
+//raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
 
 ==== 解答
 
@@ -527,6 +533,8 @@ $ dig ドメイン名 cname +short
  * C. dig kidokid.bornelund.co.jp txt +short
  * D. dig kidokid.bornelund.co.jp mx +short
 
+//raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
+
 ==== 解答
 
 正解はAです。但しBもCNAMEレコードとそのAレコードが返ってくるのでBでも構いません。CNAMEレコードはCDN@<fn>{cdn}を使うときによく利用されます。
@@ -562,7 +570,7 @@ campaign.example.com.   IN   CNAME    cdn2.example.jp.
 
 ==== ZONE APEXはCNAMEを使えない
 
-そのためZONE APEX@<fn>{zoneApex}ではCNAMEを設定することができません。私がCDNを使いたいと思っても、次のようなCNAMEレコードは設定できないのです。
+そのため@<idx>{ZONE APEX}@<fn>{zoneApex}ではCNAMEを設定することができません。私がCDNを使いたいと思っても、次のようなCNAMEレコードは設定できないのです。
 
 //footnote[zoneApex][startdns.funやexample.jpのようにwwwやstgといったサブドメインを含まないドメインのこと。レジストラやリセラで買ったいちばん短い表記のドメインのことをZONE APEXと呼びます。Apex DomainやNaked Domain、ホスト名なしドメインなどと呼ばれることもあります。]
 
