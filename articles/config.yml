@@ -50,7 +50,7 @@ aut: [{name: "mochikoAsTech", file-as: "モチコアズテック"}]
 # a-csl, csl: 監修者
 # a-dsr, dsr: デザイナ
 # a-edt, edt: 編集者
-a-dsr: ["Hikaru Wakamatsu / Shinya Nagashio"]
+dsr: ["Hikaru Wakamatsu / Shinya Nagashio"]
 # a-ill, ill: イラストレータ
 # a-lyr, lyr: 歌詞作成者
 # a-mdc, mdc: メタデータセットの一次的責任者
@@ -61,7 +61,7 @@ a-dsr: ["Hikaru Wakamatsu / Shinya Nagashio"]
 # a-pbl, pbl: 出版社（発行所）
 pbl: ["好きなコマンドはdigです"]
 # a-prt, prt: 印刷所
-prt: ["日光印刷"]
+# prt: ["日光印刷"]
 # prt: TechBooster
 # a-red, red: 項目の枠組起草者
 # a-rev, rev: 評論者
@@ -302,8 +302,8 @@ texdocumentclass: ["jsbook", "b5j,twoside,openany,uplatex"]
 # dvicommand: "dvipdfmx"
 #
 # LaTeX用のdvi変換コマンドのオプションを指定する
- dvioptions: "-d 5"
-# dvioptions: "-f msmingoth.map -d 5"
+# dvioptions: "-d 5"
+dvioptions: "-f msmingoth.map -d 5"
 
 # 以下のパラメータを有効にするときには、
 # pdfmaker:
