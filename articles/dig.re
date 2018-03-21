@@ -137,6 +137,62 @@ IPアドレスの持ち主を調べる
 $ whois IPアドレス
 //}
 
+=== 【ドリル】ドメインの有効期限が分からない
+
+==== 問題
+
+あなたはかき氷を作れるきょろちゃん@<fn>{kyoro}のサイト運用担当者です。（@<img>{kyoro}）
+
+//image[kyoro][きょろちゃん][scale=0.75]{
+//}
+
+このたび運用担当を新人へ引き継ぐことになりました。引継ぎ資料を読んだ新人から「ここに毎年ドメインの更新作業が必要って書いてあるんですけど、次の更新っていつごろですか？」と聞かれました。ドメインの有効期限を知るにはどのコマンドを叩けばいいですか？
+
+//footnote[kyoro][@<href>{http://tigerkyoro.jp/}]
+
+ * A. dig tigerkyoro.jp a +short
+ * B. whois tigerkyoro.jp
+
+//raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
+
+==== 解答
+
+正解はBです。whoisコマンドを叩くと「Expires on」という項目に有効期限が表示されます。今回のtigerkyoro.jpであれば、次のようにwhoisコマンドを叩けば、有効期限が2019/01/31であることが分かります。
+
+//cmd{
+$ whois tigerkyoro.jp
+[Querying whois.jprs.jp]
+[whois.jprs.jp]
+[ JPRS database provides information on network administration. Its use is    ]
+[ restricted to network administration purposes. For further information,     ]
+[ use 'whois -h whois.jprs.jp help'. To suppress Japanese output, add'/e'     ]
+[ at the end of command, e.g. 'whois -h whois.jprs.jp xxx/e'.                 ]
+
+Domain Information:
+[Domain Name]                   TIGERKYORO.JP
+
+[Registrant]                    Tiger Corporation
+
+[Name Server]                   ns.namedserver.net
+[Name Server]                   ns2.namedserver.net
+[Signing Key]
+
+[Created on]                    2016/01/18
+[Expires on]                    2019/01/31
+[Status]                        Active
+[Last Updated]                  2018/02/01 01:05:08 (JST)
+
+Contact Information:
+[Name]                          Clarivate Analytics (Japan) Co.,Ltd.
+[Email]                         admin@thomsonbrandy.jp
+[Web Page]
+[Postal code]                   107-6119
+[Postal Address]                Akasaka Park Building, 19F,
+                                5-2-20, Akasaka,Minato-ku,Tokyo
+[Phone]                         03-4589-3900
+[Fax]                           03-4589-3240
+//}
+
 == digを叩いてリソースレコードを確認してみよう
 
 === Aレコード
@@ -243,7 +299,7 @@ $ dig nintendo-co-jp.mail.protection.outlook.com a +short
 
 //footnote[rfc5321][@<href>{https://tools.ietf.org/html/rfc5321#section-5.1}]
 
-つまり「今回は@<href>{http://example.co.jp/}というサイトを開くだけでメールを受信する要件など全くないのでexample.co.jpのMXレコードは設定していない！」と思っていても、example.co.jpのAレコードさえあれば、そこに書かれたウェブサーバに対してメールが飛んできてしまう可能性があるのです。Postfix@<fn>{postfix}はCentOSを最小限の構成でインストールしたときでも入っているので、全然意図していなかったけどうっかりウェブサーバでPostfixが動いててエンドユーザから送られてきた個人情報満載なメールを受信していた！という可能性もあります。
+つまり「今回は@<href>{http://example.co.jp/}というサイトを開くだけでメールを送受信する要件は全くないのでexample.co.jpのMXレコードは設定していない！」と思っていても、example.co.jpのAレコードさえあれば、そこに書かれたウェブサーバに対してメールが飛んできてしまう可能性があるのです。Postfix@<fn>{postfix}はCentOSを最小限の構成でインストールしたときでも入っているので、全然意図していなかったけどうっかりウェブサーバでPostfixが動いててエンドユーザから送られてきた個人情報満載なメールを受信していた！という可能性もあります。
 
 //footnote[postfix][メール転送エージェント。要はメールを受信したり送信したりするためのメールサーバ。]
 
@@ -253,6 +309,10 @@ $ dig nintendo-co-jp.mail.protection.outlook.com a +short
 //cmd{
 example.co.jp.    IN  MX    0  .
 //}
+
+但し、メールを受信する要件がなかったとしても、メールを送信する要件がある場合はバウンスメール@<fn>{bounceMail}受信のためにMXレコードを設定しておくべきです。
+
+//footnote[bounceMail][宛先のメールアドレスが間違っていた、などの理由でメールが正常に配信できなかった場合に送信元に対して戻ってくるメールのこと。MAILER-DAEMONやリターンメール、エラーメールとも呼ばれる。]
 
 === 【トラブル】test@test.co.jpを使って情報漏洩
 
