@@ -179,7 +179,7 @@ Yahoo!ドメイン	取り扱いなし
 
 たとえばexample.co.jpのTLDはjpですが、このjpというTLDは、日本の「株式会社日本レジストリサービス」（通称JPRS）がレジストリです。JPRS、最近電車内でCMを打ったりと広報活動頑張っているので見たことがある方もいらっしゃるかと思います。
 
-それから、yahoo.comのcomというTLDのレジストリは「ベリサイングローバルレジストリサービス」という会社です。ベリサイングローバルレジストリサービスは、comだけでなくnetやnameなど複数のTLDを保有しています。また2014年ごろにGoogleが「.みんな」のレジストリになって、「どんな○○.みんなが欲しいですか？」というキャンペーン（@<img>{minna}）をしていました。このようにTLDは英語だけでなく、日本語やさまざまな言語で存在しています。
+それから、yahoo.comのcomというTLDのレジストリは「VeriSign Global Registry Services」という会社です。VeriSign Global Registry Servicesはcomだけでなくnetやnameなど複数のTLDを保有しています。また2014年ごろにGoogleが「.みんな」のレジストリになって、「どんな○○.みんなが欲しいですか？」というキャンペーン（@<img>{minna}）をしていました。このようにTLDは英語だけでなく、日本語やさまざまな言語で存在しています。
 
 //image[minna][Googleのはじめよう.みんな][scale=0.75]{
 //}
@@ -190,7 +190,7 @@ Yahoo!ドメイン	取り扱いなし
 //image[tokyo][.tokyoドメイン][scale=0.75]{
 //}
 
-=== 【トラブル】サーバ監視サービス「Mackerel」のアラート誤報はioドメインが原因
+=== 【トラブル】Mackerelのアラート誤報はioドメインが原因
 
 2017年9月、株式会社はてなが提供しているサーバ監視サービスのMackerelで、ioドメインの不調によってアラート誤報を出してしまった、というトラブル（@<img>{mackerel}）がありました。これはioドメインのネームサーバが、Mackrelのmackerel.ioというドメインについて聞かれてもきちんと応答できなかったことで、監視対象のサーバがMackerelシステムに通信できなくなり、Mackerelシステムが「監視対象のサーバから連絡が来ない！死んだのか！」と判断して誤発報してしまった、という障害でした。
 
@@ -480,16 +480,16 @@ yahoo.comの所有者を検索すると、なぜか「該当するデータが�
 
 なぜならば、このJPRS WHOISというサイトはJPRSが管理・提供している「jpで終わるドメインのWhois情報が検索できるサイト」なので、.comや.netといった.jp以外のTLDは対象範囲外だからです。
 
-前述のとおりWhoisはそれぞれのレジストリが管理・提供しているサービスです。.jpのレジストリはJPRS、.comのレジストリはベリサイングローバルレジストリサービス、.shopのレジストリはGMOドメインレジストリ、というようにTLDごとにレジストリ、つまりWhoisの管理・提供者が異なるため、Whois情報検索サイトもTLDごと@<fn>{whoisSite}に別々（@<table>{whoisSiteList}）です。
+前述のとおりWhoisはそれぞれのレジストリが管理・提供しているサービスです。.jpのレジストリはJPRS、.comのレジストリはVeriSign Global Registry Services、.shopのレジストリはGMOドメインレジストリ、というようにTLDごとにレジストリ＝Whoisの管理・提供者が異なるため、Whois情報検索サイトもTLDごと@<fn>{whoisSite}に別々（@<table>{whoisSiteList}）なのです。
 
-//footnote[whoisSite][正確にはTLDごとではなくレジストリごとに別々です。例えばベリサイングローバルレジストリサービスは.comと.netのレジストリなのでサイトでこの2つのTLDのWhoisを確認できます。]
+//footnote[whoisSite][正確にはTLDごとではなくレジストリごとに別々です。例えばVeriSign Global Registry Servicesは.comと.netのレジストリなので、VeriSign Global Registry Servicesのサイトではこの2つのTLDのWhoisを確認できます。]
 
 //table[whoisSiteList][TLDごとのWhois情報検索サイト]{
 TLD	レジストリ	Whois情報検索サイト
 ------------------------------------
 .jp	JPRS（日本レジストリサービス）	@<href>{http://whois.jprs.jp/}
-.com	ベリサイングローバルレジストリサービス	@<href>{https://www.verisign.com/ja_JP/domain-names/whois/}
-.net	ベリサイングローバルレジストリサービス	@<href>{https://www.verisign.com/ja_JP/domain-names/whois/}
+.com	VeriSign Global Registry Services	@<href>{https://www.verisign.com/ja_JP/domain-names/whois/}
+.net	VeriSign Global Registry Services	@<href>{https://www.verisign.com/ja_JP/domain-names/whois/}
 .shop	GMOドメインレジストリ	@<href>{http://whois.nic.shop/}
 //}
 

@@ -30,7 +30,7 @@ whoisコマンドのインストール
 
 //footnote[dig][digはdomain information groperの略です。ちなみにGoogleに翻訳してもらったら「ドメイン情報痴漢」でした。gropeは手さぐりするという意味なので、ドメイン情報を手探りして調べてきてくれるということです。余談ですがpingのgも同じgroperなのでdigが痴漢ならpingも痴漢です。]
 
-たとえば本書を頒布する技術書典4のウェブサイトは@<href>{https://techbookfest.org/event/tbf04}です。このサイトがどこのウェブサーバに乗っているのか知りたかったらdigで引数に「techbookfest.org」というドメインを渡してやれば調べられます。早速digを叩いてみましょう。
+たとえば本著を頒布する技術書典4のウェブサイトは@<href>{https://techbookfest.org/event/tbf04}です。このサイトがどこのウェブサーバに乗っているのか知りたかったらdigで引数に「techbookfest.org」というドメインを渡してやれば調べられます。早速digを叩いてみましょう。
 
 //cmd{
 $ @<b>{dig techbookfest.org a}
