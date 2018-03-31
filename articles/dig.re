@@ -519,7 +519,7 @@ PTRレコードは次のdigコマンドで確認できます。
 $ dig -x IPアドレス +short
 //}
 
-なおAレコードやMXレコードやSPFレコードといったドメインのリソースレコードと、PTRレコードのようなIPのリソースレコードは追加依頼をする先が別々です。私はstartdns.funというドメインを持っているので、startdns.funのAレコードやMXレコード、SPFレコードはRoute53で追加できます。
+なおAレコードやMXレコードやSPFレコードといったドメインのリソースレコードと、PTRレコードのようなIPのリソースレコードは追加依頼をする先が別々です。筆者はstartdns.funというドメインを持っているので、startdns.funのAレコードやMXレコード、SPFレコードはRoute53で追加できます。
 
 たとえばさくらインターネットのVPSで借りたサーバのIPアドレスが203.0.113.222だったとして、このIPのPTRレコードをRoute53で設定することはできません。このIPに対してPTRレコードを設定できるのは、IPの持ち主であるさくらインターネットの管理画面からとなります。
 
@@ -632,7 +632,7 @@ campaign.example.com.   IN   CNAME    cdn2.example.jp.
 
 ==== ZONE APEXはCNAMEを使えない
 
-そのため@<idx>{ZONE APEX}@<fn>{zoneApex}ではCNAMEを設定することができません。私がCDNを使いたいと思っても、次のようなCNAMEレコードは設定できないのです。
+そのため@<idx>{ZONE APEX}@<fn>{zoneApex}ではCNAMEを設定することができません。筆者がCDNを使いたいと思っても、次のようなCNAMEレコードは設定できないのです。
 
 //footnote[zoneApex][startdns.funやexample.jpのようにwwwやstgといったサブドメインを含まないドメインのこと。レジストラやリセラで買ったいちばん短い表記のドメインのことをZONE APEXと呼びます。Apex DomainやNaked Domain、ホスト名なしドメインなどと呼ばれることもあります。]
 
@@ -658,7 +658,7 @@ startdns.funというドメインに紐づくIPアドレスを調べようとし
 
 ところでドメインを買ったとき、お名前.comのネームサーバやRoute53を使う他に自力でネームサーバを立てて使うこともできます。Linuxサーバを立ててApacheをインストールすればウェブサーバになるように、Linuxサーバを立ててBINDをインストールすればもうそれは立派なネームサーバです。
 
-たとえば私がstartdns.funというドメインを買って、自分で作ったネームサーバにns1.startdns.funという名前を付けて、startdns.funのNSレコードにns1.startdns.funを設定したとします。このとき、ブラウザで@<href>{http://startdns.fun/}を開こうとすると次のようになります。
+たとえば筆者がstartdns.funというドメインを買って、自分で作ったネームサーバにns1.startdns.funという名前を付けて、startdns.funのNSレコードにns1.startdns.funを設定したとします。このとき、ブラウザで@<href>{http://startdns.fun/}を開こうとすると次のようになります。
 
  1. ブラウザ「startdns.funのIPアドレス教えて」
  1. フルリゾルバ「ちょっと待って！調べてくる。ルートネームサーバさん、startdns.funのIPアドレス教えて」

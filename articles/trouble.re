@@ -124,7 +124,7 @@ stg.example.net.    900     IN  A    203.0.113.222
 
 ですが、存在しないtest.example.netのAレコードをdigで引いたら「そんなレコードなかったよ」というキャッシュはフルリゾルバに残るのでしょうか？そして残るとしたらキャッシュ保持時間は何秒になるのでしょう？
 
-実際に自分のドメインで試してみましょう。私はstartdns.funを使ってみますので、あなたもお名前.comで買ったドメインを使って試してみてください。
+実際に自分のドメインで試してみましょう。筆者はstartdns.funを使ってみますので、あなたもお名前.comで買ったドメインを使って試してみてください。
 
 先ずはまだ存在しないtest.startdns.funをdigで引いてみましょう。statusが「そのドメインのリソースレコードは存在しない」という意味のNXDOMAINになって返ってきます。該当するレコードが存在しないためANSWER SECTIONは存在せず、代わりにドメインの管理情報を表すSOAレコードが付加情報として返ってきました。
 
@@ -158,7 +158,7 @@ startdns.fun.           900     IN      SOA     ns-943.awsdns-53.net. awsdns-hos
 //image[dnsManagement][左メニューのHosted Zonesを選択][scale=0.8]{
 //}
 
-表示されている自分のドメイン（私ならstartdns.fun）を選択（@<img>{selectDomainName}）します。
+表示されている自分のドメイン（筆者ならstartdns.fun）を選択（@<img>{selectDomainName}）します。
 
 //image[selectDomainName][自分のドメインを選択][scale=0.8]{
 //}

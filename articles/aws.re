@@ -137,7 +137,7 @@ Route53というネームサーバの中に自分のドメインのゾーンを�
 //image[youHaveNoHostedZones][「You have no hosted zones」と表示されたら再び「Create Hosted Zone」を押す][scale=0.8]{
 //}
 
-ホストゾーンの作成画面（@<img>{createHostedZones}）を開いたらDomain Nameのところに先ほどお名前.comで買った自分のドメインを書きます。私はstartdns.funというドメインを買ったので、Domain Nameのところにstartdns.funと書きました。
+ホストゾーンの作成画面（@<img>{createHostedZones}）を開いたらDomain Nameのところに先ほどお名前.comで買った自分のドメインを書きます。筆者はstartdns.funというドメインを買ったので、Domain Nameのところにstartdns.funと書きました。
 
 TypeはPublic Hosted Zoneを選択（@<table>{hostedZones}）します。「Public Hosted Zone」にしておけば外から「このドメインに紐づいてるIPはなに？」と聞かれたときに「IPはこれだよ」と返事をします。ここを「Private Hosted Zone for Amazon VPC」にしてしまうと、AWS内での名前解決しか出来なくなり外から聞かれても何も答えてくれなくなってしまいますので、必ず「Public Hosted Zone」にしておいてください。入力完了したら「Create」を押します。
 
@@ -251,7 +251,7 @@ ANSWER SECTIONは名前のとおり「startdns.funのNSレコードを教えて�
 //image[contractRemind][ドメインNavi 更新アラート][scale=0.8]{
 //}
 
-ドメイン一覧（@<img>{domainNaviDomainList}）には自分が買ったドメイン（私だったらstartdns.fun）があります。買ったばかりのドメインはネームサーバが「初期設定」になっているので、そこをクリックして「ネームサーバー設定」の画面に進みます。
+ドメイン一覧（@<img>{domainNaviDomainList}）には自分が買ったドメイン（筆者だったらstartdns.fun）があります。買ったばかりのドメインはネームサーバが「初期設定」になっているので、そこをクリックして「ネームサーバー設定」の画面に進みます。
 
 //image[domainNaviDomainList][ドメインNavi ドメイン一覧][scale=0.8]{
 //}
