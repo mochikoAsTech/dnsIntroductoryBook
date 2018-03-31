@@ -2,15 +2,17 @@
 
 AWS用語だけでアイドルソングを作って架空のアイドルに歌わせたい。そんな気持ちで作りました。原稿の〆切に追われている時ほど才能の無駄遣いをしてしまう傾向にあります。あまりによくできてしまったのでなぜか本著に収録します。それでは聞いてください。
 
+//pagebreak
+
 == AWS - 愛はワガママサンシャイン
 
 はじめの駆け引き SecurityGroup
 
-Elasticなこの気持ち みちびいてね Route53
+Elasticなこのキモチ みちびいてね Route53
 
 『やめときな』って声はGracierに
 
-そだててBeanstalk 私たちのキズナ
+そだててBeanstalk わたしたちのキズナ
 
 
 一挙一動 CloudTrail
@@ -18,9 +20,9 @@ Elasticなこの気持ち みちびいてね Route53
 つながっていたいの Direct Connect
 
 
-私の恋はAutoscale
+わたしの恋はAutoscale
 
-IAMで私だけを見つけてね
+IAMでわたしだけを見つけてね
 
 ふたりの思い出 Redshiftにおいて
 
