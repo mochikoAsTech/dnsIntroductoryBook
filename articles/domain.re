@@ -99,7 +99,7 @@ Yahoo!ドメイン	取り扱いなし
  * A. 同じドメインでも買うお店や金額によって何かしら品質に違いがある
  * B. 品質に違いはなく、どこで買ってもドメインはドメインである
 
- //raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
+//raw[|latex|\begin{reviewimage}\begin{flushright}\includegraphics[width=0.5\maxwidth\]{./images/answerColumnShort.png}\end{flushright}\end{reviewimage}]
 
 正解はBです。ドメインはどこのお店で買っても品質に差はありません。プロ向けに業務用のドメイン屋さんがあるわけではないので、Web制作会社でもよくお名前.comでドメインを購入しています。ロボット掃除機のルンバはどこで買っても同じルンバですが、ヤマダ電機とヨドバシカメラで値段は異なりますよね。ルンバと同じようにドメインもどこで買っても同じドメインですがお店によって値段が違うのです。
 
