@@ -1,7 +1,7 @@
 = AWSのネームサーバ（Route53）を使ってみよう
 
 @<chapref>{domain}で自分のドメインを買って、@<chapref>{whatIsDns}ではDNSの仕組みを学びました。
-@<chapref>{aws}ではAWSのRoute53（ルートフィフティースリー）というDNSサービスで自分のドメインのゾーンを作ってみましょう。
+この章ではAWSのRoute53（ルートフィフティースリー）というDNSサービスで自分のドメインのゾーンやリソースレコードを作ってみましょう。
 
 //pagebreak
 
