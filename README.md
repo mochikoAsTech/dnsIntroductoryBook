@@ -8,8 +8,9 @@ TechBoosterのRe:VIEW用の書籍テンプレートを利用しています。
 * https://mochikoastech.hatenablog.com/entry/2018/04/16/224857
 * https://mochikoastech.hatenablog.com/entry/2018/04/20/003129
 
-## 電子書籍（PDF）版はBOOTHでダウンロード販売しています！
+## 電子書籍（PDF）版はBOOTHとnoteでダウンロード販売しています！
 * https://mochikoastech.booth.pm/items/812516
+* https://note.mu/mochikoastech/n/n7de6204972bf
 
 ## 「DNSをはじめよう」ってどんな本？と気になったら無料サンプルはこちら！
 * https://mochikoastech.booth.pm/items/813298
